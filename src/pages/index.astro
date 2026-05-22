@@ -1,3 +1,7 @@
+---
+import { getCollection } from "astro:content";
+const posts = await getCollection("posts");
+---
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,6 +17,14 @@
     </header>
     <hr>
     <h2>Posts</h2>
-    <p>No posts.</p>
+    {posts.length === 0
+      ? <p>No posts.</p>
+      : <ul>
+          {posts.map(post => (
+            <li><a href={`/posts/${post.id}`}>{post.data.title}</a></li>
+          ))}
+        </ul>
+    }
+
   </body>
 </html>
