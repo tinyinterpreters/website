@@ -1,6 +1,6 @@
 # Website
 
-The Tiny Interpreters website.
+The source code for the [Tiny Interpreters](https://tinyinterpreters.dev/) website.
 
 ## Usage
 
