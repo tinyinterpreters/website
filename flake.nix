@@ -35,7 +35,7 @@
               #
               # N.B. You MUST build the website before attempting to deploy.
               #
-              deploy "$@" "$PROJECT_ROOT/dist release/prod"
+              deploy "$@" "$PROJECT_ROOT/dist" release/prod
             }
 
             clean () {
