@@ -1,6 +1,5 @@
 ---
-import { getCollection } from "astro:content";
-const posts = await getCollection("posts");
+import "@/styles/index.css";
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -15,16 +14,6 @@ const posts = await getCollection("posts");
       <h1>Tiny Interpreters</h1>
       <h2>Hand-crafted, byte-sized interpreters with Elm</h2>
     </header>
-    <hr>
-    <h2>Posts</h2>
-    {posts.length === 0
-      ? <p>No posts.</p>
-      : <ul>
-          {posts.map(post => (
-            <li><a href={`/posts/${post.id}`}>{post.data.title}</a></li>
-          ))}
-        </ul>
-    }
-
+    <p>Learn to build interpreters and walk away with concepts that sharpen every other area of your software development practice.</p>
   </body>
 </html>
