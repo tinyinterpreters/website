@@ -1,5 +1,13 @@
 {
-  outputs = { self, nixpkgs, flake-utils }:
+  inputs = {
+    deploy = {
+      url = "github:dwayne/deploy";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
+  };
+
+  outputs = { self, nixpkgs, flake-utils, deploy }:
     flake-utils.lib.eachDefaultSystem(system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
@@ -9,6 +17,7 @@
           name = "website";
 
           packages = [
+            deploy.packages.${system}.deploy
             pkgs.nodejs-slim_24
             pkgs.pnpm
           ];
